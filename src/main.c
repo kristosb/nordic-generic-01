@@ -14,7 +14,14 @@
 #include <zephyr/sys/printk.h>
 #include <zephyr/drivers/uart.h>
 
-#include <zephyr/drivers/i2c.h>
+//#include <zephyr/drivers/i2c.h>
+//#include <zephyr/device.h>
+#include <zephyr/drivers/display.h>
+#include <lvgl.h>
+#include <stdio.h>
+#include <string.h>
+
+
 
 #define RECEIVE_BUFF_SIZE 10
 #define RECEIVE_TIMEOUT 100
@@ -77,6 +84,32 @@ void main(void)
 
 	printk("Message from PRINTK\n");
 
+	const struct device *display_dev;
+	lv_obj_t *hello_world_label;
+	lv_obj_t *count_label;
+
+
+	/*if (IS_ENABLED(CONFIG_LV_Z_POINTER_KSCAN)) {
+		lv_obj_t *hello_world_button;
+
+		hello_world_button = lv_btn_create(lv_scr_act());
+		lv_obj_align(hello_world_button, LV_ALIGN_CENTER, 0, 0);
+		hello_world_label = lv_label_create(hello_world_button);
+	} else {*/
+		//hello_world_label = lv_label_create(lv_scr_act());
+	//}
+
+	/*lv_label_set_text(hello_world_label, "HALO WIKTOR !");
+	lv_obj_align(hello_world_label, LV_ALIGN_CENTER, 0, 0);
+
+	count_label = lv_label_create(lv_scr_act());
+	lv_obj_align(count_label, LV_ALIGN_BOTTOM_MID, 0, 0);
+
+	lv_task_handler();
+	display_blanking_off(display_dev);*/
+
+
+
 	if (!device_is_ready(led.port)) {
 		return;
 	}
@@ -136,8 +169,28 @@ void main(void)
 	} 
 	// LOG_INF("LOG Starting the loop...");
 	// printk("PRINTK Starting the loop...\n");
-	while (1) {
+	k_msleep(1000*2);
+	display_dev = DEVICE_DT_GET(DT_CHOSEN(zephyr_display));
+	if (!device_is_ready(display_dev)) {
+		printk("Device not ready, aborting oled");
+		return;
+	}
 
+	display_set_brightness(display_dev, 255);
+	display_set_contrast(display_dev, 255);
+	hello_world_label = lv_label_create(lv_scr_act());
+
+	lv_label_set_text(hello_world_label, "HALO WIKTOR !");
+	lv_obj_align(hello_world_label, LV_ALIGN_CENTER, 0, 0);
+
+	count_label = lv_label_create(lv_scr_act());
+	lv_obj_align(count_label, LV_ALIGN_BOTTOM_MID, 0, 0);
+
+	lv_task_handler();
+
+	display_blanking_off(display_dev);
+
+	while (1) {
 
         k_msleep(SLEEP_TIME_MS);
 	}

@@ -8,7 +8,7 @@ inputs:
   path:
     description: 'Project Directory'
     required: false
-    default: ''
+    default: '.'
   opts:
     description: 'Any additional cppcheck flags or options'
     required: false

@@ -7,4 +7,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./proj-actions
+      - uses: kristosb/nordic-generic-01@master/proj-actions

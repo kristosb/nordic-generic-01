@@ -1,0 +1,21 @@
+name: CPPCheck-annotations
+description: Automatically checks pull requests changes with cppcheck and prints the results as GitHub annotations
+author: tonybaloney
+branding:
+  icon: alert-circle
+  color: green
+inputs:
+  path:
+    description: 'Project Directory'
+    required: false
+    default: '.'
+  opts:
+    description: 'Any additional cppcheck flags or options'
+    required: false
+    default: '--enable=warning'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.path }}
+    - ${{ inputs.opts }}

@@ -6,7 +6,7 @@ for folder in "${folders[@]}"
 do
     echo ${folder}
     if [[ -d ${folder} ]]; then
-        command="cppcheck --language=c++ ${folder}"
+        command="cppcheck --language=c++ --error-exitcode=1 ${folder}"
         echo ${command}
         if ${command} | grep "error"; then
             echo "::error ::Review your code"

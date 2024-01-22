@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-folder = "scr"
+folder = "src"
 echo ${folder}
 if [[ -d ${folder} ]]; then
     command="cppcheck --language=c++ --error-exitcode=1 ${folder}"

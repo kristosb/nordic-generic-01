@@ -184,20 +184,20 @@ int display_init(void)
 
     int ret = 0;
     if (!device_is_ready(led.port)) {
-        return;
+        return 0;
 	}
 
 	if (!device_is_ready(button.port)) {
-		return;
+		return 0;
 	}
 	ret = gpio_pin_configure_dt(&led, GPIO_OUTPUT_ACTIVE);
 	if (ret < 0) {
-		return;
+		return 0;
 	}
 
 	ret = gpio_pin_configure_dt(&button, GPIO_INPUT);
 	if (ret < 0) {
-		return;
+		return 0;
 	}
 
 	ret = gpio_pin_interrupt_configure_dt(&button, GPIO_INT_EDGE_TO_ACTIVE );

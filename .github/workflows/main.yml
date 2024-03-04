@@ -15,8 +15,8 @@ jobs:
             run: docker build -t unit-tests-image -f Dockerfile .
             
           - name: Linting
-            run: docker run -it --rm unit-test-image bash  -c "make lint -C /project"
+            run: docker run -i --rm unit-test-image bash  -c "make lint -C /project"
             
           - name: Unit test
-            run: docker run -it --rm unit-test-image bash  -c "make test -C /project"
+            run: docker run -i --rm unit-test-image bash  -c "make test -C /project"
             #-run docker run -it --rm unit-test-image bash  -c "make test -C /project && make test_clean -C /project"    

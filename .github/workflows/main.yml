@@ -1,10 +1,22 @@
-name: linting
+name: Unit Tests
 
-on: push
+on: [push]
+
 jobs:
-  linting:
-    name: code check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: kristosb/nordic-generic-01/proj-actions@main
+    docker-unit-tests:
+        runs-on: ubuntu-latest
+        name: Build and run unit tests Docker image
+        steps:
+        
+          - name: Check out this repo
+            uses: actions/checkout@v3
+            
+          - name: Build Docker image
+            run: docker build -t unit-tests-image -f Dockerfile .
+            
+          - name: Linting
+            run: docker run -it --rm unit-test-image bash  -c "make lint -C /project"
+            
+          - name: Unit test
+            run: docker run -it --rm unit-test-image bash  -c "make test -C /project"
+            #-run docker run -it --rm unit-test-image bash  -c "make test -C /project && make test_clean -C /project"    

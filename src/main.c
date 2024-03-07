@@ -24,6 +24,7 @@ LOG_MODULE_REGISTER(main, 3);
 
 
 
+
 void main(void)
 {
 	int ret;

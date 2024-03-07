@@ -54,3 +54,9 @@ Cellular-IoT-Fundamentals.code-workspace
 # CppUTest and cppcheck framework
 cpputest/
 cppcheck/
+
+# Executables
+*.elf
+*.hex
+*.bin
+*.out

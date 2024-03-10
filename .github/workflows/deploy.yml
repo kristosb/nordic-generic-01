@@ -25,7 +25,7 @@ jobs:
             uses: actions/checkout@v3
             
           - name: Build Docker image
-            run: docker build -t nrf-builder-image --build-arg sdk_nrf_version=v2.5-branch -f DockerfileNrf .
+            run: docker build -t nrf-builder-image --build-arg sdk_nrf_version=v2.5-branch -f actions/DockerfileNrf .
             
           - name: Create Docker container
             run: docker create --name nrf-builder-container nrf-builder-image

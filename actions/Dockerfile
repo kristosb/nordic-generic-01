@@ -7,9 +7,9 @@ RUN apt update && \
 	
 # Copy project into image
 RUN mkdir /project
-COPY src /project/src
-COPY tests /project/tests
-COPY Makefile /project/Makefile
+COPY ../src /project/src
+COPY ../tests /project/tests
+COPY ../Makefile /project/Makefile
 
 # Download and build CppUTest
 RUN mkdir /project/tools/ && \

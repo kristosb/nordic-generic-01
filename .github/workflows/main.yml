@@ -12,7 +12,7 @@ jobs:
             uses: actions/checkout@v3
             
           - name: Build Docker image
-            run: docker build -t unit-tests-image -f Dockerfile .
+            run: docker build -t unit-tests-image -f actions/Dockerfile .
             
           - name: Linting
             run: docker run -i --rm unit-tests-image bash  -c "make lint -C /project"

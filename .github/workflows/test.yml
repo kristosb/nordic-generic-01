@@ -2,7 +2,7 @@ name: Testing
 
 #on: [push]
 on:
-  workflow_call:
+    workflow_call:
 jobs:
     docker-unit-tests:
         runs-on: ubuntu-latest

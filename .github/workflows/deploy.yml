@@ -6,7 +6,7 @@ name: Deploy new version
 #        tags:
 #          - "v*.*.*"
 on:
-  workflow_call:          
+    workflow_call:          
 # Must match the project() name in CMakeLists.txt
 env:
     APP_NAME: zephyr

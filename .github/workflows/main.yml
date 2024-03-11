@@ -1,6 +1,6 @@
 name: allActions
-on: [push]
-#    push:
+on:
+    push:
 #        branches: [ "main" ]
     workflow_dispatch:
 permissions:

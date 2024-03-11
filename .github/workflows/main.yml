@@ -1,5 +1,4 @@
 name: allActions
-on:
 on: [push]
 #    push:
 #        branches: [ "main" ]

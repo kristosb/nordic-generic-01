@@ -1,12 +1,12 @@
-name: main
+name: allActions
 on:
-  push:
-    branches: [ "main" ]
-  workflow_dispatch:
+    push:
+        branches: [ "main" ]
+    workflow_dispatch:
 jobs:
-  call-test:
-    uses: ./.github/workflows/test.yaml
-  call-deploy:
-    needs: call-test
-    if: startsWith(github.ref, 'refs/tags/v')
-    uses: ./.github/workflows/deploy.yaml
+    call-test:
+        uses: ./.github/workflows/test.yaml
+    call-deploy:
+        if: startsWith(github.ref, 'refs/tags/v')
+        needs: call-test
+        uses: ./.github/workflows/deploy.yaml

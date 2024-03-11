@@ -1,6 +1,6 @@
 # CHANGELOG.md
 
-## 0.0.1 (2024-03-07)
+## 0.0.4 (2024-03-011)
 
 Fixes:
 
@@ -8,5 +8,4 @@ Fixes:
  
 Features:
 
- - Initial release of generic program
- - Added workflow to automatically generate hex binary on each release
+ - Changed the actions files to be more scalable

@@ -1,7 +1,8 @@
 name: allActions
 on:
-    push:
-        branches: [ "main" ]
+on: [push]
+#    push:
+#        branches: [ "main" ]
     workflow_dispatch:
 permissions:
     contents: write

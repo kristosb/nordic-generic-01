@@ -1,6 +1,6 @@
 # CHANGELOG.md
 
-## 0.0.4 (2024-03-011)
+## 0.0.8 (2024-03-012)
 
 Fixes:
 
@@ -8,4 +8,4 @@ Fixes:
  
 Features:
 
- - Changed the actions files to be more scalable
+ - OLED displays test image

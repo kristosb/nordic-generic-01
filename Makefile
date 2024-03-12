@@ -4,6 +4,7 @@ CXX ?= g++
 
 # Settings
 SRC_DIR = ./src
+LINT_DIR = ./lint
 TEST_DIR = ./tests
 BUILD_DIR = .
 NAME = app.elf
@@ -38,4 +39,4 @@ test_clean:
 # Run tests
 .PHONY: lint
 lint:
-	make -C $(SRC_DIR)
+	make -C $(LINT_DIR)

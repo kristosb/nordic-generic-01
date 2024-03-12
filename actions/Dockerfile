@@ -9,6 +9,7 @@ RUN apt update && \
 RUN mkdir /project
 COPY ../src /project/src
 COPY ../tests /project/tests
+COPY ../lint /project/lint
 COPY ../Makefile /project/Makefile
 
 # Download and build CppUTest
